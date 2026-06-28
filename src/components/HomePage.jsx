@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "./Header";
 import courses from "./CoarseData"
+import Testimonials from "./Testimonials";
+import CTASection from "./CTASection";
+import Footer from "./Footer";
 import {
   Search,
   Star,
@@ -118,6 +121,9 @@ export default function HomePage() {
           </button>
         </div>
       </section>
+      <Testimonials />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
