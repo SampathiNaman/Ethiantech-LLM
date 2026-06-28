@@ -1,16 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
-import courses from "./CoarseData"
+import courses from "./CoarseData";
 import Testimonials from "./Testimonials";
 import CTASection from "./CTAsection";
 import Footer from "./Footer";
-import {
-  Search,
-  Star,
-  Menu,
-  X,
-} from "lucide-react";
-
+import { Search, Star } from "lucide-react";
+import { LoginPopup, SignupPopup } from "./AuthPopups";
 
 function CourseCard({ course }) {
   return (
@@ -30,23 +25,16 @@ function CourseCard({ course }) {
         <h3 className="line-clamp-2 text-base font-semibold leading-snug text-gray-900">
           {course.title}
         </h3>
-
         <p className="text-sm text-gray-500">{course.author}</p>
-
         <div className="flex items-center gap-2 text-sm">
           <span className="font-medium text-gray-800">{course.rating}</span>
           <div className="flex items-center gap-0.5 text-orange-500">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                size={14}
-                className={i < 4 ? "fill-current" : ""}
-              />
+              <Star key={i} size={14} className={i < 4 ? "fill-current" : ""} />
             ))}
           </div>
           <span className="text-gray-400">({course.reviews})</span>
         </div>
-
         <p className="text-lg font-bold text-gray-900">{course.price}</p>
       </div>
     </div>
@@ -54,12 +42,18 @@ function CourseCard({ course }) {
 }
 
 export default function HomePage() {
+  // Centralized state to manage the popups
+  const [popupState, setPopupState] = useState('none');
 
   return (
-    <div className="min-h-screen bg-[#f8f8fb] text-gray-900">
-      
-        <Header />
-        
+    <div className="relative min-h-screen bg-[#f8f8fb] text-gray-900">
+
+      {/* Pass the state updaters to the Header */}
+      <Header
+        onLoginClick={() => setPopupState('login')}
+        onSignupClick={() => setPopupState('signup')}
+      />
+
       {/* Hero Section */}
       <section className="mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20">
         <div className="mx-auto max-w-5xl text-center">
@@ -121,9 +115,25 @@ export default function HomePage() {
           </button>
         </div>
       </section>
+
       <Testimonials />
       <CTASection />
       <Footer />
+
+      {/* Auth Popups */}
+      {popupState === 'login' && (
+        <LoginPopup
+          onClose={() => setPopupState('none')}
+          onSwitchToSignup={() => setPopupState('signup')}
+        />
+      )}
+
+      {popupState === 'signup' && (
+        <SignupPopup
+          onClose={() => setPopupState('none')}
+          onSwitchToLogin={() => setPopupState('login')}
+        />
+      )}
     </div>
   );
 }
