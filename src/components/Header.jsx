@@ -1,7 +1,8 @@
 import React from "react";
 
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+export default function Header({ onLoginClick, onSignupClick }) {
+    // Mobile menu state (commented out in your original code, left intact here)
+    // const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
     return (
         <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90">
@@ -27,13 +28,19 @@ export default function Header() {
                     >
                         Add Courses
                     </a>
-                    <a
-                        href="#"
+
+                    {/* Replaced <a> with <button> for accessibility and to prevent page jumps */}
+                    <button
+                        onClick={onLoginClick}
                         className="text-sm font-medium text-gray-600 transition hover:text-gray-900"
                     >
                         Login
-                    </a>
-                    <button className="rounded-full bg-[#D62A91] px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
+                    </button>
+
+                    <button
+                        onClick={onSignupClick}
+                        className="rounded-full bg-[#D62A91] px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+                    >
                         Create Account
                     </button>
                 </nav>
