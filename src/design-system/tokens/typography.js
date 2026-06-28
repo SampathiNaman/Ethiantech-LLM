@@ -1,0 +1,76 @@
+export const typography = {
+  display: {
+    fontFamily: 'Outfit',
+    fontWeight: 700,
+    fontSize: '2.5rem',
+    lineHeight: 1.2,
+  },
+  h1: {
+    fontFamily: 'Outfit',
+    fontWeight: 700,
+    fontSize: '2.125rem',
+    lineHeight: 1.25,
+  },
+  h2: {
+    fontFamily: 'Outfit',
+    fontWeight: 600,
+    fontSize: '1.5rem',
+    lineHeight: 1.3,
+  },
+  h3: {
+    fontFamily: 'Outfit',
+    fontWeight: 600,
+    fontSize: '1.25rem',
+    lineHeight: 1.35,
+  },
+  h4: {
+    fontFamily: 'Outfit',
+    fontWeight: 600,
+    fontSize: '1.125rem',
+    lineHeight: 1.4,
+  },
+  sectionHeading: {
+    fontFamily: 'Inter',
+    fontWeight: 600,
+    fontSize: '0.875rem',
+    lineHeight: 1.4,
+    letterSpacing: '0.01em',
+  },
+  cardTitle: {
+    fontFamily: 'Outfit',
+    fontWeight: 600,
+    fontSize: '1rem',
+    lineHeight: 1.4,
+  },
+  body: {
+    fontFamily: 'Inter',
+    fontWeight: 400,
+    fontSize: '0.9375rem',
+    lineHeight: 1.6,
+  },
+  caption: {
+    fontFamily: 'Inter',
+    fontWeight: 400,
+    fontSize: '0.8125rem',
+    lineHeight: 1.5,
+  },
+  label: {
+    fontFamily: 'Inter',
+    fontWeight: 500,
+    fontSize: '0.875rem',
+    lineHeight: 1.4,
+  },
+  button: {
+    fontFamily: 'Outfit',
+    fontWeight: 600,
+    fontSize: '0.9375rem',
+    lineHeight: 1,
+    letterSpacing: '0.02em',
+  },
+  meta: {
+    fontFamily: 'Inter',
+    fontWeight: 400,
+    fontSize: '0.75rem',
+    lineHeight: 1.4,
+  },
+};
