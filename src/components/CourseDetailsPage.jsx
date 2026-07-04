@@ -17,98 +17,9 @@ import {
   FileText,
 } from "lucide-react";
 import { LoginPopup, SignupPopup } from "./AuthPopups";
-import CourseCurriculumAccordion from "./CourseCurriculumAccordion";
-
-const curriculumData = [
-  {
-    title: "Project Introduction",
-    lectures: 3,
-    duration: "45m",
-    lessons: [
-      { title: "App Overview — Build Text-to-Image SaaS", duration: "10 mins" },
-      { title: "How This Course Works", duration: "8 mins" },
-      { title: "Prerequisites & Setup Overview", duration: "12 mins" },
-    ],
-  },
-  {
-    title: "Project Setup",
-    lectures: 4,
-    duration: "1h 20m",
-    lessons: [
-      { title: "Installing Required Tools", duration: "15 mins" },
-      { title: "Project Scaffolding", duration: "20 mins" },
-      { title: "Configuration & Environment Variables", duration: "25 mins" },
-      { title: "Initial Git Repository Setup", duration: "20 mins" },
-    ],
-  },
-  {
-    title: "Tailwind Setup",
-    lectures: 3,
-    duration: "55m",
-    lessons: [
-      { title: "Installing & Configuring Tailwind CSS", duration: "15 mins" },
-      { title: "Building the Design System", duration: "25 mins" },
-      { title: "Responsive Layout Fundamentals", duration: "15 mins" },
-    ],
-  },
-  {
-    title: "Frontend Project",
-    lectures: 5,
-    duration: "3h 10m",
-    lessons: [
-      { title: "Component Architecture Planning", duration: "20 mins" },
-      { title: "Building the UI Components", duration: "45 mins" },
-      { title: "State Management Integration", duration: "35 mins" },
-      { title: "API Integration & Data Fetching", duration: "50 mins" },
-      { title: "Testing & Error Handling", duration: "40 mins" },
-    ],
-  },
-  {
-    title: "Backend Project",
-    lectures: 4,
-    duration: "2h 45m",
-    lessons: [
-      { title: "Server Setup & Routing", duration: "30 mins" },
-      { title: "Database Models & Migrations", duration: "45 mins" },
-      { title: "Authentication & Authorization", duration: "50 mins" },
-      { title: "Deploying the Backend", duration: "40 mins" },
-    ],
-  },
-  {
-    title: "Payment Integration",
-    lectures: 3,
-    duration: "1h 30m",
-    lessons: [
-      { title: "Payment Gateway Setup", duration: "25 mins" },
-      { title: "Processing Payments Securely", duration: "35 mins" },
-      { title: "Webhook Handling & Edge Cases", duration: "30 mins" },
-    ],
-  },
-  {
-    title: "Project Deployment",
-    lectures: 3,
-    duration: "1h 15m",
-    lessons: [
-      { title: "Preparing for Production", duration: "20 mins" },
-      { title: "CI/CD Pipeline Setup", duration: "30 mins" },
-      { title: "Monitoring & Analytics", duration: "25 mins" },
-    ],
-  },
-];
-
-function StarRating({ rating, size = 14 }) {
-  return (
-    <div className="flex items-center gap-0.5 text-orange-500">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          size={size}
-          className={i < Math.round(rating) ? "fill-current" : ""}
-        />
-      ))}
-    </div>
-  );
-}
+import StarRating from "./StarRating";
+import CourseStructure from "./CourseStructure";
+import curriculumData from "../data/curriculumData.json";
 
 export default function CourseDetailsPage() {
   const { id } = useParams();
@@ -159,7 +70,6 @@ export default function CourseDetailsPage() {
   const originalPrice = (priceNum * 3).toFixed(2);
   const discountPercent = Math.round((1 - priceNum / (priceNum * 3)) * 100);
 
-  const totalSections = curriculumData.length;
   const totalLectures = curriculumData.reduce((s, sec) => s + sec.lectures, 0);
   const totalDuration = "27h 25m";
 
@@ -223,36 +133,7 @@ export default function CourseDetailsPage() {
               </Link>
             </p>
 
-            <hr className="my-8 border-gray-200" />
-
-            <h2 className="text-xl font-bold text-gray-900">
-              Course Structure
-            </h2>
-            <p className="mt-1 text-sm text-gray-500">
-              {totalSections} sections • {totalLectures} lectures •{" "}
-              {totalDuration} total duration
-            </p>
-
-            <CourseCurriculumAccordion
-              sections={curriculumData}
-              defaultExpandedIndex={0}
-              renderHeaderMeta={(section) =>
-                `${section.lectures} lectures • ${section.duration}`
-              }
-              renderLessonContent={(lesson) => (
-                <>
-                  <PlayCircle size={16} className="shrink-0 text-gray-400" />
-                  <Link
-                    to={`/courses/video`}
-                    className="text-inherit no-underline"
-                  >
-                    {lesson.title}
-                  </Link>
-                  {/* <span>{lesson.title}</span> */}
-                </>
-              )}
-              renderLessonMeta={(lesson) => lesson.duration}
-            />
+            <CourseStructure sections={curriculumData} />
 
             <hr className="my-10 border-gray-200" />
 
