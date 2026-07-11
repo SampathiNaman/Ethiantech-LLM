@@ -1,47 +1,6 @@
-// import {
-//   StarIcon,
-// } from "@heroicons/react/24/solid";
+import data from "../data/testimonialsData.json";
 
-const companies = [
-  {
-    name: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png",
-  },
-  {
-    name: "Walmart",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Walmart_logo_%282008%29.svg",
-  },
-  {
-    name: "Accenture",
-    logo: "https://raynet-inc.com/wp-content/uploads/2022/01/2000px-Accenture_logo.svg-1024x282.png",
-  },
-  {
-    name: "Adobe",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Adobe_Corporate_logo.svg/3840px-Adobe_Corporate_logo.svg.png",
-  },
-  {
-    name: "Paypal",
-    logo: "https://cdn.simpleicons.org/paypal",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Donald Jackman",
-    role: "SWE 1 @ Amazon",
-    image: "https://danish-h099.github.io/MyFirstWebsite/tac.jpg",
-  },
-  {
-    name: "Richard Nelson",
-    role: "SWE 2 @ Summa",
-    image: "https://danish-h099.github.io/MyFirstWebsite/tfc.jpeg",
-  },
-  {
-    name: "James Washington",
-    role: "SWE 2 @ Google",
-    image: "https://cdn.simpleicons.org/google",
-  },
-];
+const { companies, testimonials } = data;
 
 export default function Testimonials() {
   return (
