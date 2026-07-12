@@ -4,8 +4,9 @@ import { ChevronDown, PlayCircle } from "lucide-react";
 
 export default function CourseStructure({
   sections,
+  title = "Course Structure",
+  totalDuration,
   defaultExpandedIndex = 0,
-  activeLessonId,
   onLessonClick,
   renderLessonContent,
   renderLessonMeta,
@@ -13,15 +14,14 @@ export default function CourseStructure({
   const [expandedIndex, setExpandedIndex] = useState(defaultExpandedIndex);
   const totalSections = sections.length;
   const totalLectures = sections.reduce((s, sec) => s + sec.lectures, 0);
-  const totalDuration = "27h 25m";
 
   return (
     <>
       <hr className="my-8 border-gray-200" />
-      <h2 className="text-xl font-bold text-gray-900">Course Structure</h2>
+      <h2 className="text-xl font-bold text-gray-900">{title}</h2>
       <p className="mt-2 mb-4 text-sm text-gray-500">
-        {totalSections} sections • {totalLectures} lectures •{" "}
-        {totalDuration} total duration
+        {totalSections} sections • {totalLectures} lectures
+        {totalDuration && <> • {totalDuration}</>}
       </p>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
         <div className="divide-y divide-gray-200">

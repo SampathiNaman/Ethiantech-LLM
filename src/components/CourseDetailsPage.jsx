@@ -133,7 +133,7 @@ export default function CourseDetailsPage() {
               </Link>
             </p>
 
-            <CourseStructure sections={curriculumData} />
+            <CourseStructure sections={curriculumData} totalDuration={totalDuration} />
 
             <hr className="my-10 border-gray-200" />
 
