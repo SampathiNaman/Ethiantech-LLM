@@ -15,6 +15,12 @@ import AdminStudentsPage from "./components/admin/AdminStudentsPage";
 import AdminInstructorsPage from "./components/admin/AdminInstructorsPage";
 import AdminCoursesPage from "./components/admin/AdminCoursesPage";
 import AdminUsersPage from "./components/admin/AdminUsersPage";
+import StudentLayout from "./components/student/StudentLayout";
+import StudentDashboardPage from "./components/student/StudentDashboardPage";
+import StudentMyCoursesPage from "./components/student/StudentMyCoursesPage";
+import StudentNotesPage from "./components/student/StudentNotesPage";
+import StudentWishlistPage from "./components/student/StudentWishlistPage";
+import StudentPerformancePage from "./components/student/StudentPerformancePage";
 import "./App.css";
 
 function App() {
@@ -40,6 +46,14 @@ function App() {
           <Route path="instructors" element={<AdminInstructorsPage />} />
           <Route path="courses" element={<AdminCoursesPage />} />
           <Route path="users" element={<AdminUsersPage />} />
+        </Route>
+        <Route path="/student" element={<StudentLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<StudentDashboardPage />} />
+          <Route path="my-courses" element={<StudentMyCoursesPage />} />
+          <Route path="notes" element={<StudentNotesPage />} />
+          <Route path="wishlist" element={<StudentWishlistPage />} />
+          <Route path="performance" element={<StudentPerformancePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
