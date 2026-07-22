@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Upload, Plus, Trash2, ChevronDown, ChevronUp, Video } from "lucide-react";
 
 const inputBase =
-  "h-[40px] w-full rounded border border-[#252525]/50 bg-white px-3 text-[14px] text-[#252525] outline-none transition focus:border-[#252525]";
+  "h-[40px] w-full rounded border border-[#252525]/50 bg-white px-3 text-[14px] text-[#252525] outline-none transition focus:border-[#D62A91]";
 const labelBase =
   "mb-1 block font-outfit text-base text-[#252525]/70";
 const errorText = "mt-1 text-[13px] text-red-500";
@@ -63,18 +63,18 @@ export default function AddCoursePage() {
 
   function handleDrop(e) {
     e.preventDefault();
-    dragRef.current?.classList.remove("ring-2", "ring-[#0260FF]");
+    dragRef.current?.classList.remove("ring-2", "ring-[#D62A91]");
     const file = e.dataTransfer.files[0];
     handleFileSelect(file);
   }
 
   function handleDragOver(e) {
     e.preventDefault();
-    dragRef.current?.classList.add("ring-2", "ring-[#0260FF]");
+    dragRef.current?.classList.add("ring-2", "ring-[#D62A91]");
   }
 
   function handleDragLeave() {
-    dragRef.current?.classList.remove("ring-2", "ring-[#0260FF]");
+    dragRef.current?.classList.remove("ring-2", "ring-[#D62A91]");
   }
 
   function addSection() {
@@ -224,9 +224,12 @@ export default function AddCoursePage() {
 
   return (
     <div className="w-full max-w-[560px]">
-      <h1 className="mb-8 text-[28px] font-semibold text-[#252525]">
+      <h1 className="mb-2 text-[28px] font-semibold text-[#252525]">
         Add Course
       </h1>
+      <p className="mb-8 text-[15px] text-[#494949]">
+        Create a new course with details, curriculum, and media
+      </p>
       <form onSubmit={handleSubmit} noValidate>
         {/* Course Title */}
         <div className="mb-5">
@@ -360,7 +363,7 @@ export default function AddCoursePage() {
               className={`relative flex h-[40px] w-full cursor-pointer items-center justify-center overflow-hidden rounded border transition ${
                 thumbnailPreview
                   ? "border-transparent"
-                  : "border-[#0260FF] bg-[#0260FF] hover:opacity-90"
+                  : "border-[#D62A91] bg-[#D62A91] hover:opacity-90"
               } ${errors.thumbnail ? "ring-2 ring-red-500" : ""}`}
             >
               <input
@@ -421,7 +424,6 @@ export default function AddCoursePage() {
           <div className="space-y-3">
             {curriculum.map((section, sIdx) => {
               const isExpanded = expandedSection === sIdx;
-              const lessonCount = section.lessons.length;
               return (
                 <div
                   key={sIdx}
@@ -514,7 +516,7 @@ export default function AddCoursePage() {
                               />
                               {lesson.video ? (
                                 <div className="flex shrink-0 items-center gap-1.5 rounded border border-[#252525]/15 bg-[#F7F9FD] px-2 py-1">
-                                  <Video size={13} className="shrink-0 text-[#0260FF]" />
+                                  <Video size={13} className="shrink-0 text-[#D62A91]" />
                                   <span className="max-w-[100px] truncate text-[12px] text-[#252525]/70">
                                     {lesson.video.name}
                                   </span>
@@ -536,7 +538,7 @@ export default function AddCoursePage() {
                                       .get(refKey)
                                       ?.click()
                                   }
-                                  className="flex shrink-0 items-center gap-1 rounded border border-[#0260FF] bg-[#0260FF] px-2 py-1 text-[12px] text-white transition hover:opacity-90"
+                                  className="flex shrink-0 items-center gap-1 rounded border border-[#D62A91] bg-[#D62A91] px-2 py-1 text-[12px] text-white transition hover:opacity-90"
                                 >
                                   <Upload size={12} />
                                   Video
@@ -560,7 +562,7 @@ export default function AddCoursePage() {
                       <button
                         type="button"
                         onClick={() => addLesson(sIdx)}
-                        className="mt-3 flex items-center gap-1.5 text-[13px] font-medium text-[#0260FF] transition hover:text-[#0260FF]/80"
+                        className="mt-3 flex items-center gap-1.5 text-[13px] font-medium text-[#D62A91] transition hover:text-[#D62A91]/80"
                       >
                         <Plus size={14} />
                         Add Lesson
@@ -576,7 +578,7 @@ export default function AddCoursePage() {
           <button
             type="button"
             onClick={addSection}
-            className="mt-3 flex items-center gap-1.5 text-[14px] font-medium text-[#0260FF] transition hover:text-[#0260FF]/80"
+            className="mt-3 flex items-center gap-1.5 text-[14px] font-medium text-[#D62A91] transition hover:text-[#D62A91]/80"
           >
             <Plus size={15} />
             Add Section
@@ -586,7 +588,7 @@ export default function AddCoursePage() {
         {/* ADD button */}
         <button
           type="submit"
-          className="flex h-[40px] w-full items-center justify-center rounded bg-black font-outfit text-[16px] text-white transition hover:bg-gray-800 sm:w-[91px]"
+          className="flex h-[40px] w-full items-center justify-center rounded bg-[#D62A91] font-outfit text-[16px] text-white transition hover:bg-[#D62A91]/90 sm:w-[91px]"
         >
           ADD
         </button>

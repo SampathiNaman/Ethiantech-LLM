@@ -4,7 +4,7 @@ import CourseListPage from "./components/CourseListPage";
 import CourseDetailsPage from "./components/CourseDetailsPage";
 import TutorLayout from "./components/tutor/TutorLayout";
 import AddCoursePage from "./components/tutor/AddCoursePage";
-import DashboardPlaceholder from "./components/tutor/DashboardPlaceholder";
+import TutorDashboardPage from "./components/tutor/TutorDashboardPage";
 import TutorCoursesPage from "./components/tutor/TutorCoursesPage";
 import StudentsEnrolledPage from "./components/tutor/StudentsEnrolledPage";
 import CourseVideo from "./components/CourseVideo";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/course/:id" element={<CourseDetailsPage />} />
         <Route path="/tutor" element={<TutorLayout />}>
           <Route index element={<Navigate to="add-course" replace />} />
-          <Route path="dashboard" element={<DashboardPlaceholder />} />
+          <Route path="dashboard" element={<TutorDashboardPage />} />
           <Route path="add-course" element={<AddCoursePage />} />
           <Route path="courses" element={<TutorCoursesPage />} />
           <Route path="students" element={<StudentsEnrolledPage />} />

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, LogOut, User, Menu, X } from "lucide-react";
+import { ChevronDown, LogOut, User, Menu, X, GraduationCap } from "lucide-react";
 
 export default function TutorNavbar({ sidebarOpen, setSidebarOpen }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -38,10 +38,8 @@ export default function TutorNavbar({ sidebarOpen, setSidebarOpen }) {
             Hi! <span className="font-medium text-[#252525]">Richard</span>
           </span>
           {/* Avatar circle */}
-          <div className="relative h-[45px] w-[45px] overflow-hidden rounded-full shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
-            <div className="flex h-full w-full items-center justify-center bg-[#EBEBEB]">
-              <User size={20} className="text-[#494949]" />
-            </div>
+          <div className="relative flex h-[45px] w-[45px] items-center justify-center overflow-hidden rounded-full bg-[#D62A91]/10 shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
+            <GraduationCap size={20} className="text-[#D62A91]" />
           </div>
           <ChevronDown size={16} className="text-[#494949]" />
         </button>

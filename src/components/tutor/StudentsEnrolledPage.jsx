@@ -5,22 +5,23 @@ import studentsData from "../../data/studentsData";
 export default function StudentsEnrolledPage() {
   return (
     <div className="font-outfit">
-      {/* Page header */}
       <div className="mb-8">
         <h1 className="text-[28px] font-semibold text-[#252525]">
-          Student Enrolled
+          Students Enrolled
         </h1>
+        <p className="mt-1 text-[15px] text-[#494949]">
+          View all students enrolled in your courses
+        </p>
       </div>
 
-      {/* Student table */}
-      <div className="overflow-x-auto rounded-[6px] border border-[#252525]/20">
+      <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
         <table className="w-full min-w-[600px] border-collapse">
           <thead>
-            <tr className="border-b border-[#252525]/20 bg-white text-left text-[14px] text-[#252525]">
-              <th className="w-[50px] px-5 py-4 font-semibold">#</th>
-              <th className="px-5 py-4 font-semibold">Student name</th>
-              <th className="px-5 py-4 font-semibold">Course Title</th>
-              <th className="px-5 py-4 font-semibold">Date</th>
+            <tr className="border-b border-[#252525]/20 text-left text-[14px] text-[#252525]/70">
+              <th className="w-[50px] px-5 py-4 font-medium">#</th>
+              <th className="px-5 py-4 font-medium">Student Name</th>
+              <th className="px-5 py-4 font-medium">Course Title</th>
+              <th className="px-5 py-4 font-medium">Date</th>
               <th className="w-[50px]" />
             </tr>
           </thead>
@@ -36,10 +37,10 @@ export default function StudentsEnrolledPage() {
                 <td className="px-5 py-4">{student.id}</td>
                 <td className="px-5 py-4">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-[35px] w-[35px] shrink-0 items-center justify-center rounded-full bg-[#EBEBEB]">
-                      <User size={16} className="text-[#494949]" />
+                    <div className="flex h-[35px] w-[35px] shrink-0 items-center justify-center rounded-full bg-[#D62A91]/10">
+                      <User size={16} className="text-[#D62A91]" />
                     </div>
-                    <span className="whitespace-nowrap">{student.name}</span>
+                    <span className="whitespace-nowrap font-medium text-[#252525]">{student.name}</span>
                   </div>
                 </td>
                 <td className="px-5 py-4">
