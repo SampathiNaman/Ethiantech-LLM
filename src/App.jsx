@@ -8,6 +8,13 @@ import DashboardPlaceholder from "./components/tutor/DashboardPlaceholder";
 import TutorCoursesPage from "./components/tutor/TutorCoursesPage";
 import StudentsEnrolledPage from "./components/tutor/StudentsEnrolledPage";
 import CourseVideo from "./components/CourseVideo";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboardPage from "./components/admin/AdminDashboardPage";
+import AdminRevenuePage from "./components/admin/AdminRevenuePage";
+import AdminStudentsPage from "./components/admin/AdminStudentsPage";
+import AdminInstructorsPage from "./components/admin/AdminInstructorsPage";
+import AdminCoursesPage from "./components/admin/AdminCoursesPage";
+import AdminUsersPage from "./components/admin/AdminUsersPage";
 import "./App.css";
 
 function App() {
@@ -24,6 +31,15 @@ function App() {
           <Route path="add-course" element={<AddCoursePage />} />
           <Route path="courses" element={<TutorCoursesPage />} />
           <Route path="students" element={<StudentsEnrolledPage />} />
+        </Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<AdminDashboardPage />} />
+          <Route path="revenue" element={<AdminRevenuePage />} />
+          <Route path="students" element={<AdminStudentsPage />} />
+          <Route path="instructors" element={<AdminInstructorsPage />} />
+          <Route path="courses" element={<AdminCoursesPage />} />
+          <Route path="users" element={<AdminUsersPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
